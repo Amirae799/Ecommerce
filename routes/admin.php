@@ -30,7 +30,7 @@ use App\Http\Controllers\LoginController;
   Route::get('createproduct', 'App\Http\Controllers\DashboardController@createProduct')->name('products.create');
   Route::post('storeproduct', 'App\Http\Controllers\DashboardController@storeProduct')->name('storeProduct');
   Route::get('edit/{id}', 'App\Http\Controllers\DashboardController@editProduct');
-  Route::post('updateproduct/{id}', 'App\Http\Controllers\DashboardController@UpdateProduct');
+  Route::post('updateproduct/{id}', 'App\Http\Controllers\DashboardController@updateProduct')->name('updateproduct');
   Route::get('delete/{product_id}', 'App\Http\Controllers\DashboardController@delete')->name('products.delete');
   /////////////////////////////////////////admin modify user///////////////////////////////////////////////////////
   Route::get('allusers','App\Http\Controllers\DashboardController@allusers')->name('admin.allusers');

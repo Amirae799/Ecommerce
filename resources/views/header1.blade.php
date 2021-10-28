@@ -22,8 +22,11 @@ use App\Models\Admin;
                 <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Product</a>
+                <a class="nav-link" href="{{route('admin.allproducts')}}">Products</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('admin.allusers')}}">Users</a>
+          </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.dashboard')}}">Profile</a>
             </li>
@@ -36,6 +39,7 @@ use App\Models\Admin;
 
             </li>
             @if(Session::has('admin'))
+            <img src="{{Session::get('admin')['photo']}}" style="width:30px">
             <li class="dropdown" style="text-align: center">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:lightseagreen">{{Session::get('admin')['name']}}
                     <span class="caret"></span></a>

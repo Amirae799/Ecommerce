@@ -34,7 +34,6 @@ class DashboardController extends Controller
   ]);
   return view('admin.allproduct');
   }
-  /////////////////////////////////////////////////////////////////////////////////////////
   public function editProduct($id){
   $products=Product::find($id);
 if(!$products)
@@ -45,17 +44,20 @@ return redirect()->back();
 
   }
   //////////////////////////////////////////////////////UPDATE PRODUCT BY ADMIN//////////////////////////////////////////////////
-  public function UpdateProduct($id,Request $request ){
+  public function updateProduct(Request $request,Product $products,$id){
+ 
     $request->validate([
       'name' => 'required',
       'price' => 'required',
-      'description' => 'required',]);
-      $products = Product::find($id);
-      $requestData = $request->except('password');
-      $products->update($requestData);
-      return redirect('admin/allproduct');
+      'detail' => 'required',
+  ]);
 
-  }
+   $products->update($request->all());
+
+      return redirect()->route('admin.allproduct')
+      ->with('success','Product updated successfully');
+    
+      }
   ///////////////////////////////////////////////delete product by user////////////////////////////////
   public function delete($product_id)
     {

@@ -118,7 +118,7 @@ margin-left: 4px;
 			</div>
 			<div class="card-body">
       
-				<form action="{{URL('admin/updateproduct/'.$products->id)}}" method="POST">
+				<form action="{{url('updateproduct'.$products->id)}}" method="POST">
           @csrf
 					<div class="input-group form-group">
 					
